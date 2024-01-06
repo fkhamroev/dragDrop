@@ -1,3 +1,5 @@
+@import url("./assets/css/media.css");
+
 .app {
   display: flex;
   align-items: center;
@@ -39,7 +41,8 @@
 }
 
 .tasks-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: flex-start;
   gap: 100px;
   pointer-events: all;
@@ -83,9 +86,9 @@
   padding: 15px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   border-radius: 6px;
-  text-transform: uppercase;
   font-weight: 600;
   cursor: grab;
+  background: #d3d3d3;
   pointer-events: all;
 }
 
@@ -114,7 +117,8 @@
 .list-remove {
   bottom: 5px;
   right: 5px;
-  width: 15px;
+  width: 18px;
+  height: 18px;
   color: grey;
   border: 1px solid grey;
   border-radius: 100%;
@@ -127,7 +131,8 @@
 .list-edit {
   bottom: 5px;
   right: 30px;
-  width: 15px;
+  width: 18px;
+  font-size: 16px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -169,7 +174,6 @@
   top: 20px;
   right: 20px;
   font-size: 18px;
-
 }
 
 .modal-content {
@@ -209,5 +213,4 @@
   cursor: pointer !important;
   border-radius: 3px;
   transition: all 500ms;
-
 }

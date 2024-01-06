@@ -11,7 +11,10 @@ interface TaskType {
   status: string;
 }
 
-const ListTasks: React.FC<{ tasks: TaskType[], setTasks: React.Dispatch<React.SetStateAction<TaskType[]>> }> = ({ tasks, setTasks }) => {
+const ListTasks: React.FC<{
+  tasks: TaskType[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
+}> = ({ tasks, setTasks }) => {
   const [todos, setTodos] = useState<TaskType[]>([]);
   const [inProgress, setInProgress] = useState<TaskType[]>([]);
   const [closed, setClosed] = useState<TaskType[]>([]);
@@ -47,7 +50,14 @@ const ListTasks: React.FC<{ tasks: TaskType[], setTasks: React.Dispatch<React.Se
 
 export default ListTasks;
 
-const Section: React.FC<{ status: string, tasks: TaskType[], setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>, todos: TaskType[], inProgress: TaskType[], closed: TaskType[] }> = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
+const Section: React.FC<{
+  status: string;
+  tasks: TaskType[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
+  todos: TaskType[];
+  inProgress: TaskType[];
+  closed: TaskType[];
+}> = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
   const [{ isOver }, drop] = useDrop(
     () => ({
       accept: "task",
@@ -103,7 +113,11 @@ const Section: React.FC<{ status: string, tasks: TaskType[], setTasks: React.Dis
   );
 };
 
-const Header: React.FC<{ text: string, count: number, status: string }> = ({ text, count, status }) => {
+const Header: React.FC<{ text: string; count: number; status: string }> = ({
+  text,
+  count,
+  status,
+}) => {
   let bgStyle: React.CSSProperties = {};
 
   if (status === "inprogress") {
@@ -122,7 +136,11 @@ const Header: React.FC<{ text: string, count: number, status: string }> = ({ tex
   );
 };
 
-const Task: React.FC<{ task: TaskType, tasks: TaskType[], setTasks: React.Dispatch<React.SetStateAction<TaskType[]>> }> = ({ task, tasks, setTasks }) => {
+const Task: React.FC<{
+  task: TaskType;
+  tasks: TaskType[];
+  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
+}> = ({ task, tasks, setTasks }) => {
   const [editedTaskName, setEditedTaskName] = useState<string>(task.name);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [draggingEnabled, setDraggingEnabled] = useState<boolean>(true);

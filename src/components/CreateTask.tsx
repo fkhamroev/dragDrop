@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
 
-
 interface Task {
   id: string;
   name: string;
@@ -23,10 +22,10 @@ const CreateTask: React.FC<CreateTaskProps> = ({ tasks, setTasks }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (task.name.length < 3)
-      return toast.error("A task must have more than 3 characters");
-    if (task.name.length > 100)
-      return toast.error("A task must not be more than 100 characters");
+    // if (task.name.length < 3)
+    //   return toast.error("A task must have more than 3 characters");
+    // if (task.name.length > 100)
+    //   return toast.error("A task must not be more than 100 characters");
 
     setTasks((prev) => {
       const list = [...prev, task];
@@ -48,6 +47,9 @@ const CreateTask: React.FC<CreateTaskProps> = ({ tasks, setTasks }) => {
         type="text"
         className="input"
         value={task.name}
+        required
+        minLength={3}
+        maxLength={100}
         onChange={(e) => {
           setTask({ ...task, id: uuidv4(), name: e.target.value });
         }}
@@ -60,4 +62,3 @@ const CreateTask: React.FC<CreateTaskProps> = ({ tasks, setTasks }) => {
 };
 
 export default CreateTask;
- 

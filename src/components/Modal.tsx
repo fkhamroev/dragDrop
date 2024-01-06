@@ -1,5 +1,3 @@
-import React from "react";
-
 const Modal = ({ onClose, children }) => {
   const handleClose = (e) => {
     e.preventDefault();
@@ -9,7 +7,11 @@ const Modal = ({ onClose, children }) => {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <button className="modal-close" onClick={handleClose}>
+        <button
+          className="modal-close"
+          onClick={handleClose}
+          title="Close Modal"
+        >
           ❌
         </button>
         <div className="modal-content">{children}</div>
